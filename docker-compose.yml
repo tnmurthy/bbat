@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  bbat-portal:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: bbat_central_portal
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - SECRET_KEY=prod_railway_jwt_secret_key_2026_bbat_secure
+      - DATABASE_URL=sqlite:///./bbat_database.db
+    volumes:
+      - bbat_data:/app
+
+volumes:
+  bbat_data:

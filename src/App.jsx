@@ -274,6 +274,8 @@ export default function App() {
       setUser(mockUser);
       localStorage.setItem('bbat_token', mockToken);
       localStorage.setItem('bbat_user', JSON.stringify(mockUser));
+      setLoading(false);
+      return;
     } else {
       setLoginError('Invalid username or password. Use demo credentials shown below.');
     }
